@@ -1,0 +1,11 @@
+﻿  pch.cpp
+  dllmain.cpp
+  mydll.cpp
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(1): warning C4603: “BUILD_MYDLL”: 未定义宏或在预编译头使用后定义发生改变
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(1): message : 将宏添加到预编译头中，而不是在此处定义
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(2): message : 使用预编译头
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(7,38): warning C4273: “convert_array”: dll 链接不一致
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.h(10,27): message : 参见“convert_array”的前一个定义
+  正在生成代码...
+    正在创建库 C:\Users\27142\Desktop\vspy01\vs01\RandProject\Debug\RandProject.lib 和对象 C:\Users\27142\Desktop\vspy01\vs01\RandProject\Debug\RandProject.exp
+  RandProject.vcxproj -> C:\Users\27142\Desktop\vspy01\vs01\RandProject\Debug\RandProject.dll
