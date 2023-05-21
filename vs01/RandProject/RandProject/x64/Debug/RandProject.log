@@ -4,8 +4,70 @@
 C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(1): warning C4603: “BUILD_MYDLL”: 未定义宏或在预编译头使用后定义发生改变
 C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(1): message : 将宏添加到预编译头中，而不是在此处定义
 C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(2): message : 使用预编译头
-C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(9,32): warning C4273: “matxier”: dll 链接不一致
-C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.h(10,29): message : 参见“matxier”的前一个定义
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(13,21): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(183,12): warning C4101: “j”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(195,12): warning C4101: “j”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(207,12): warning C4101: “j”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(233,12): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(262,15): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(264,45): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(260,9): warning C4101: “c”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(259,12): warning C4101: “j”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(294,12): warning C4101: “c”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(293,12): warning C4101: “j”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(315,45): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(312,9): warning C4101: “b”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(312,12): warning C4101: “c”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(311,12): warning C4101: “j”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(332,45): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(327,9): warning C4101: “b”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(327,12): warning C4101: “c”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(326,12): warning C4101: “j”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(353,46): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(364,46): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(347,9): warning C4101: “b”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(347,12): warning C4101: “c”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(386,45): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(416,45): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(378,9): warning C4101: “b”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(378,12): warning C4101: “c”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(377,12): warning C4101: “j”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(428,6): warning C4101: “a”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(427,6): warning C4101: “k”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(428,9): warning C4101: “b”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(428,12): warning C4101: “c”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(427,12): warning C4101: “j”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(427,9): warning C4101: “i”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(442,18): warning C4101: “h”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(478,12): warning C4101: “j”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(571,12): warning C4101: “j”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(678,9): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(662,6): warning C4101: “a”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(662,9): warning C4101: “b”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(662,12): warning C4101: “c”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(661,12): warning C4101: “j”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(726,12): warning C4101: “j”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(726,9): warning C4101: “i”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(762,24): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(761,12): warning C4101: “j”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(761,9): warning C4101: “i”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(773,6): warning C4101: “a”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(773,9): warning C4101: “b”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(773,12): warning C4101: “c”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(772,12): warning C4101: “j”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(772,9): warning C4101: “i”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(802,12): warning C4101: “j”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(802,9): warning C4101: “i”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(815,12): warning C4101: “c”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(814,12): warning C4101: “j”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(915,6): warning C4101: “a”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(915,9): warning C4101: “b”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(915,12): warning C4101: “c”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(914,12): warning C4101: “j”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(914,9): warning C4101: “i”: 未引用的局部变量
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(951,1): warning C4273: “generate”: dll 链接不一致
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.h(12,28): message : 参见“generate”的前一个定义
+C:\Users\27142\Desktop\vspy01\vs01\RandProject\RandProject\mydll.cpp(952,12): warning C4101: “j”: 未引用的局部变量
   正在生成代码...
     正在创建库 C:\Users\27142\Desktop\vspy01\vs01\RandProject\x64\Debug\RandProject.lib 和对象 C:\Users\27142\Desktop\vspy01\vs01\RandProject\x64\Debug\RandProject.exp
   RandProject.vcxproj -> C:\Users\27142\Desktop\vspy01\vs01\RandProject\x64\Debug\RandProject.dll
