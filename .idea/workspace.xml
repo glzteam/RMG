@@ -1,50 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="fcb20d14-eb13-4288-bcf3-d1c3750bc86f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RandProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/RandProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py01/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/py01/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/py01/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/py01/.idea/py01.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/py01/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/py01/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/py01/Main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/py01/back_image.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/py01/game_function.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/py01/images/m.bmp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/py01/images/str1.bmp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/py01/images/str2.bmp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/py01/role.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/py01/settings.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/.vs/RandProject/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/.vs/RandProject/v16/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/.vs/RandProject/v16/Browse.VC.db" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/.vs/RandProject/v16/Browse.VC.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/.vs/RandProject/v16/ipch/243c859871468557.ipch" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/.vs/RandProject/v16/ipch/243c859871468557.ipch" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/RandProject/mydll.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/RandProject/mydll.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/RandProject/mydll.h" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/RandProject/mydll.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.ilk" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.ilk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.log" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.pch" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.pch" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.tlog/CL.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.tlog/CL.read.1.tlog" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.tlog/CL.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.tlog/CL.write.1.tlog" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.tlog/RandProject.lastbuildstate" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.tlog/RandProject.lastbuildstate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.tlog/RandProject.write.1u.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.tlog/RandProject.write.1u.tlog" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.tlog/link.delete.1.tlog" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.tlog/link.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.tlog/link.read.1.tlog" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.tlog/link.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.tlog/link.write.1.tlog" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/dllmain.obj" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/dllmain.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/mydll.obj" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/mydll.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/pch.obj" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/pch.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/vc142.idb" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/vc142.idb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/vc142.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/vc142.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/x64/Debug/RandProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/x64/Debug/RandProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/x64/Debug/RandProject.exp" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/x64/Debug/RandProject.exp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/x64/Debug/RandProject.lib" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/x64/Debug/RandProject.lib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/x64/Debug/RandProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/x64/Debug/RandProject.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyqttest.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_game/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_game/Main.py" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,37 +18,27 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="2PNWTPymv2FTsK3NVH8EPYX3Sa1" />
-  <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="terminal" />
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectId" id="2PNWTPymv2FTsK3NVH8EPYX3Sa1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\27142\Desktop\vspy01\python_game\images" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Python.pyqttest">
+  <component name="RunManager" selected="Python.help">
     <configuration name="Main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="vspy01" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -106,7 +61,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="help" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="vspy01" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -114,12 +69,53 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/py01" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pages" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/py01/Main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pages/help.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="home" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="vspy01" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pages" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pages/home.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="vspy01" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -152,12 +148,15 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.help" />
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.home" />
         <item itemvalue="Python.pyqttest" />
         <item itemvalue="Python.Main (1)" />
-        <item itemvalue="Python.Main" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -180,6 +179,7 @@
       <workItem from="1684656990597" duration="3855000" />
       <workItem from="1684672428004" duration="4370000" />
       <workItem from="1684677459045" duration="5630000" />
+      <workItem from="1684687338626" duration="2000" />
     </task>
     <servers />
   </component>
@@ -191,17 +191,10 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/vspy01$Main__1_.coverage" NAME="Main (1) Coverage Results" MODIFIED="1684499609886" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/python_game" />
-    <SUITE FILE_PATH="coverage/vspy01$Main.coverage" NAME="Main Coverage Results" MODIFIED="1684371475339" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/py01" />
-    <SUITE FILE_PATH="coverage/vspy01$pyqttest.coverage" NAME="pyqttest Coverage Results" MODIFIED="1684686446026" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

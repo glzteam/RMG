@@ -9,10 +9,13 @@ class Game():
     """
     参数设定
     """
-    def __init__(self):
+    def __init__(self, difficulty=1):
 
         self.flag = False
         self.end = False
+
+        # 判断程序结束的标识
+        self.identification = 0
 
         # 调用C++函数生成地图时的地图控制参数
         self.length = 100  # 地图的长度
@@ -110,7 +113,7 @@ class Game():
             print(e, "加载dll失败")
 
     def out_matrix(self, curdif):
-        dll_path = self.find_dll("../RandProject.dll")
+        dll_path = self.find_dll("./RandProject.dll")
         if dll_path:
             return self.load_dll(dll_path, curdif)
 
@@ -137,6 +140,7 @@ class Game():
                 screen.blit(image_data[i][j], (j * image_width, i * image_height))
         screen.blit(player_image, (player_pos[1] * image_width, player_pos[0] * image_height))
         screen.blit(end_image, (end_pos[1] * image_width, end_pos[0] * image_height))
+        screen.blit(self.text, (1480, 20))
         pygame.display.flip()
 
     """
@@ -198,7 +202,22 @@ class Game():
     def run_game(self):
         # 初始化Pygame
         pygame.init()
-        # 生成二维矩阵，并将其赋值给data
+
+        pygame.display.set_caption(" iKun 打篮球")
+
+        # 加载图像文件
+        icon = pygame.image.load('python_game/images/icon.png')
+
+        # 设置游戏窗口图标
+        pygame.display.set_icon(icon)
+
+        self.font = pygame.font.Font(None, 36)
+
+        self.start_time = time.time()
+
+        self.game_time_limit = 20
+
+        # 生成二维矩阵，并将其赋值给dataX
         self.data = np.array(self.out_matrix(1))
         # 参数设置
         self.image_width = self.image0.get_width()
@@ -225,6 +244,16 @@ class Game():
             if event.type == pygame.QUIT:
                 self.flag = True
 
+        present_time = time.time() - self.start_time
+        remain_time = self.game_time_limit - present_time
+
+        if remain_time <= 0:
+            self.identification = 3
+            pygame.quit()
+
+        time_str = "Time:{}s".format(int(remain_time))
+        self.text = self.font.render(time_str, True, (255, 255, 255))
+
         # 获取当前按下的按键
         keys = pygame.key.get_pressed()
         if keys[pygame.K_SPACE]:
@@ -248,6 +277,7 @@ class Game():
     """
     def exit_game(self):
         if self.flag:
+            self.identification = 1
             pygame.quit()
 
     """
@@ -255,6 +285,7 @@ class Game():
     """
     def check_end(self):
         if self.end:
+            self.identification = 2
             print('恭喜你到达了终点,该关卡结束')
             pygame.quit()
 
