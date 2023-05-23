@@ -13,7 +13,7 @@ class Help(QWidget):
         # ---- 初始化组件 ----
         # 创建标签
         self.label_title = QLabel('迷宫游戏')
-        self.label_purpose = QLabel('该应用程序由葛震鹏开发\n游戏由张永记开发\n地图随机生成算法由李知拙编写\n目的旨在展示地图随机生成算法\n代码在xxx，欢迎提交issue')
+        self.label_purpose = QLabel('该应用程序由葛震鹏开发\n游戏由张永记开发\n地图随机生成算法由李知拙编写\n目的旨在展示地图随机生成算法\n代码在 https://github.com/glzteam/RMG ，欢迎提交issue')
         # 排列方式设置
         self.label_title.setAlignment(Qt.AlignmentFlag.AlignCenter | Qt.AlignmentFlag.AlignBottom)
         self.label_purpose.setAlignment(Qt.AlignmentFlag.AlignCenter | Qt.AlignmentFlag.AlignTop)

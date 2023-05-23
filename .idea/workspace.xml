@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fcb20d14-eb13-4288-bcf3-d1c3750bc86f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_game/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_game/Main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +15,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/python_game/Main.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -35,7 +39,7 @@
       <recent name="C:\Users\27142\Desktop\vspy01\python_game\images" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.help">
+  <component name="RunManager" selected="Python.main">
     <configuration name="Main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="vspy01" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -145,8 +149,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.help" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.help" />
         <item itemvalue="Python.home" />
         <item itemvalue="Python.pyqttest" />
         <item itemvalue="Python.Main (1)" />

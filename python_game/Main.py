@@ -9,7 +9,7 @@ class Game():
     """
     参数设定
     """
-    def __init__(self, difficulty=1):
+    def __init__(self):
 
         self.flag = False
         self.end = False
@@ -17,12 +17,15 @@ class Game():
         # 判断程序结束的标识
         self.identification = 0
 
+        # 当前游戏难度
+        self.curDiff = 1
+
         # 调用C++函数生成地图时的地图控制参数
         self.length = 100  # 地图的长度
         self.width = 200  # 地图的宽度
         self.room_R_ = 6  # 房间半径上限
         self.room_r_ = 4  # 房间半径下限
-        self.room_num_ = 20  # 房间数量
+        self.room_num_ = 5  # 房间数量
         self.room_edge_ = 8  # 与地图边缘的最小距离
         self.room_min_dis_ = 10  # 房间之间最小距离（圆心）
         self.path_r_ = 1  # 路径半宽度
@@ -51,6 +54,7 @@ class Game():
         try:
 
             print('游戏当前的难度', curdif)
+            self.curDiff = curdif
 
             # 加载动态库，若失败则抛出异常
             vc_dll = ctypes.CDLL(dll_path)
@@ -67,7 +71,7 @@ class Game():
             n = self.width  # 地图的宽
             room_R_ = self.room_R_  # 房间半径的上限
             room_r_ = self.room_r_  # 房间半径下限
-            room_num_ = self.room_num_  # 房间数量
+            room_num_ = self.room_num_ + 5 * curdif  # 房间数量
             room_edge_ = self.room_edge_  # 与地图边缘的最小距离
             room_min_dis_ = self.room_min_dis_  # 房间之间最小距离（圆心）
             path_r_ = self.path_r_  # 路径半宽度
@@ -286,6 +290,7 @@ class Game():
     def check_end(self):
         if self.end:
             self.identification = 2
+            self.curDiff = self.curDiff + 1
             print('恭喜你到达了终点,该关卡结束')
             pygame.quit()
 
