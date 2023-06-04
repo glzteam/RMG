@@ -1,4 +1,4 @@
-from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QVBoxLayout, QHBoxLayout, QLineEdit
+from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout, QHBoxLayout
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QPixmap, QFont
 from qfluentwidgets import PrimaryPushButton
@@ -6,7 +6,7 @@ import sys
 
 
 class Home(QWidget):
-    def __init__(self, username='默认用户', credit='-'):
+    def __init__(self, username='默认用户', credit='-', curdif='-'):
         super().__init__()
         # self.setGeometry(650, 350, 300, 250)
         # self.setWindowTitle("首页")
@@ -27,6 +27,12 @@ class Home(QWidget):
         self.label_credit.setText('积分：' + str(credit))
         self.label_credit.setFont(font)
         self.label_credit.move(50, 90)
+
+        self.label_difficulty = QLabel(self)
+        self.label_difficulty.setText('关数：' + str(curdif))
+        self.label_difficulty.setFont(font)
+        self.label_difficulty.move(50, 130)
+        self.label_difficulty.adjustSize()
 
         # 初始化图片
         self.label_game = QLabel('迷宫游戏')

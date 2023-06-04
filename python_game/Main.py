@@ -9,33 +9,7 @@ class Game():
     """
     参数设定
     """
-    def __init__(self):
-
-        self.flag = False
-        self.end = False
-
-        # 判断程序结束的标识
-        self.identification = 0
-
-        # 当前游戏难度
-        self.curDiff = 1
-
-        # 调用C++函数生成地图时的地图控制参数
-        self.length = 100  # 地图的长度
-        self.width = 200  # 地图的宽度
-        self.room_R_ = 6  # 房间半径上限
-        self.room_r_ = 4  # 房间半径下限
-        self.room_num_ = 5  # 房间数量
-        self.room_edge_ = 8  # 与地图边缘的最小距离
-        self.room_min_dis_ = 10  # 房间之间最小距离（圆心）
-        self.path_r_ = 1  # 路径半宽度
-        self.path_step_ = 3  # 路径生成步长
-        self.max_path_len_ = 100000000000000000  # 最长路径长度
-        self.ring_path_num_ = 0  # 生成树完成之后增加的路径数量
-
-        # 设置角色和终点位置
-        self.player_pos = [4, 6]
-        self.end_pos = [95, 190]
+    def __init__(self, difficulty=1):
 
         # 加载角色和背景的图片,并对图片进行一定程度的缩放
         self.image = pygame.transform.scale(pygame.image.load('python_game/images/m.bmp'), (8, 8))
@@ -43,45 +17,57 @@ class Game():
         self.image0 = pygame.transform.scale(pygame.image.load('python_game/images/str1.bmp'), (8, 8))
         self.image1 = pygame.transform.scale(pygame.image.load('python_game/images/str2.bmp'), (8, 8))
 
-    """
-    find_dll  load_dll  out_matrix调用C++地图生成，产生地图
-    """
-    def find_dll(self, dll_name):
-        # 查找dll
-        return ctypes.util.find_library(dll_name)
+        # 设置角色和终点位置
+        self.player_pos = [4, 6]
+        self.end_pos = [95, 190]
 
-    def load_dll(self, dll_path, curdif):
+        # 游戏限时
+        self.game_time_limit = 30
+
+        self.flag = False
+
+        # 判断程序结束的标识
+        self.identification = 0
+
+        # 当前游戏难度
+        self.difficulty = difficulty
+
+        # 调用C++函数生成地图时的地图控制参数
+        self.length = 100  # 地图的长度
+        self.width = 200  # 地图的宽度
+        self.room_R_ = 5  # 房间半径上限
+        self.room_r_ = 3  # 房间半径下限
+        self.room_num_ = 30  # 房间数量
+        self.room_edge_ = 8  # 与地图边缘的最小距离
+        self.room_min_dis_ = 15  # 房间之间最小距离（圆心）
+        self.path_r_ = 1  # 路径半宽度
+        self.path_step_ = 3  # 路径生成步长
+        self.max_path_len_ = 100000000000000000  # 最长路径长度
+        self.ring_path_num_ = 0  # 生成树完成之后增加的路径数量
+
+    """
+    out_matrix调用C++地图生成函数，产生地图参数
+    """
+
+    def out_matrix(self):
         try:
-
-            print('游戏当前的难度', curdif)
-            self.curDiff = curdif
-
+            dll_path = ctypes.util.find_library("./RandProject.dll")
             # 加载动态库，若失败则抛出异常
             vc_dll = ctypes.CDLL(dll_path)
             # 获取动态库的函数
             vc_func = vc_dll.generate
 
             # 设置一个二维指针，指向生成过程中产生的二维矩阵
-            N = 1010
-            MP = ctypes.c_int * N * N
-            mp = MP()
+            num = 1010
+            mp_array = ctypes.c_int * num * num
+            mp = mp_array()
 
-            # 赋值控制地图的参数
-            m = self.length  # 地图的长
-            n = self.width  # 地图的宽
-            room_R_ = self.room_R_  # 房间半径的上限
-            room_r_ = self.room_r_  # 房间半径下限
-            room_num_ = self.room_num_ + 5 * curdif  # 房间数量
-            room_edge_ = self.room_edge_  # 与地图边缘的最小距离
-            room_min_dis_ = self.room_min_dis_  # 房间之间最小距离（圆心）
-            path_r_ = self.path_r_  # 路径半宽度
-            path_step_ = self.path_step_  # 路径生成步长
-            max_path_len_ = self.max_path_len_  # 最长路径长度
-            ring_path_num_ = self.ring_path_num_  # 生成树完成之后增加的路径数量
+            # 地图房间的数量
+            room_num_ = self.room_num_ + 15 * self.difficulty
 
             # 做类型适配
             vc_func.argtypes = [
-                ctypes.POINTER(MP),
+                ctypes.POINTER(mp_array),
                 ctypes.c_int,
                 ctypes.c_int,
                 ctypes.c_int,
@@ -97,29 +83,23 @@ class Game():
 
             # 该处是调用C++的函数，设置欲传递的参数，传入后得到预期的结果
             vc_func(ctypes.byref(mp),
-                    m,
-                    n,
-                    room_R_,
-                    room_r_,
+                    self.length,
+                    self.width,
+                    self.room_R_,
+                    self.room_r_,
                     room_num_,
-                    room_edge_,
-                    room_min_dis_,
-                    path_r_,
-                    path_step_,
-                    max_path_len_,
-                    ring_path_num_)
+                    self.room_edge_,
+                    self.room_min_dis_,
+                    self.path_r_,
+                    self.path_step_,
+                    self.max_path_len_,
+                    self.ring_path_num_)
 
             # 将二维矩阵转换为 Python 中的列表
-            matrix = [[mp[i][j] for j in range(n)] for i in range(m)]
+            matrix = [[mp[i][j] for j in range(self.width)] for i in range(self.length)]
             return matrix
-
         except OSError as e:
             print(e, "加载dll失败")
-
-    def out_matrix(self, curdif):
-        dll_path = self.find_dll("./RandProject.dll")
-        if dll_path:
-            return self.load_dll(dll_path, curdif)
 
     """
     绘制游戏过程中完整的游戏界面
@@ -144,8 +124,6 @@ class Game():
                 screen.blit(image_data[i][j], (j * image_width, i * image_height))
         screen.blit(player_image, (player_pos[1] * image_width, player_pos[0] * image_height))
         screen.blit(end_image, (end_pos[1] * image_width, end_pos[0] * image_height))
-        screen.blit(self.text, (1480, 20))
-        pygame.display.flip()
 
     """
     在0和1组成的矩阵表面粘贴图片，生成游戏背景
@@ -164,41 +142,18 @@ class Game():
     def moving_up(self, player_pos, data):
         if player_pos[0] > 0 and data[player_pos[0] - 1][player_pos[1]] == 0:
             player_pos[0] -= 1
-        if player_pos == [95, 190]:
-            self.end = True
-        else:
-            self.end = False
 
     def moving_down(self, player_pos, data):
         if player_pos[0] < data.shape[0] - 1 and data[player_pos[0] + 1][player_pos[1]] == 0:
             player_pos[0] += 1
-        if player_pos == [95, 190]:
-            self.end = True
-        else:
-            self.end = False
 
     def moving_left(self, player_pos, data):
         if player_pos[1] > 0 and data[player_pos[0]][player_pos[1] - 1] == 0:
             player_pos[1] -= 1
-        if player_pos == [95, 190]:
-            self.end = True
-        else:
-            self.end = False
 
     def moving_right(self, player_pos, data):
         if player_pos[1] < data.shape[1] - 1 and data[player_pos[0]][player_pos[1] + 1] == 0:
             player_pos[1] += 1
-        if player_pos == [95, 190]:
-            self.end = True
-        else:
-            self.end = False
-
-    """
-    是否到达游戏的终点
-    """
-    def check_result(self, player_pos, curdif):
-        if player_pos == [0, 0]:
-            return curdif + 1
 
     """
     游戏前的准备阶段，直到生成最初的静止游戏界面
@@ -207,22 +162,17 @@ class Game():
         # 初始化Pygame
         pygame.init()
 
+        # 设置游戏窗口图标和名称
         pygame.display.set_caption(" iKun 打篮球")
-
-        # 加载图像文件
         icon = pygame.image.load('python_game/images/icon.png')
-
-        # 设置游戏窗口图标
         pygame.display.set_icon(icon)
 
         self.font = pygame.font.Font(None, 36)
 
         self.start_time = time.time()
 
-        self.game_time_limit = 20
-
         # 生成二维矩阵，并将其赋值给dataX
-        self.data = np.array(self.out_matrix(1))
+        self.data = np.array(self.out_matrix())
         # 参数设置
         self.image_width = self.image0.get_width()
         self.image_height = self.image0.get_height()
@@ -241,27 +191,19 @@ class Game():
         pygame.key.set_repeat(pygame.KEYDOWN, 1000)
 
     """
-    游戏运行检测的主体阶段，判决角色的移动和游戏是否结束
+    判决角色的移动，角色移动模块
     """
-    def game_main(self):
+    def check_game_keys(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                self.flag = True
-
-        present_time = time.time() - self.start_time
-        remain_time = self.game_time_limit - present_time
-
-        if remain_time <= 0:
-            self.identification = 3
-            pygame.quit()
-
-        time_str = "Time:{}s".format(int(remain_time))
-        self.text = self.font.render(time_str, True, (255, 255, 255))
+                self.identification = 1
+                pygame.quit()
 
         # 获取当前按下的按键
         keys = pygame.key.get_pressed()
         if keys[pygame.K_SPACE]:
-            self.flag = True
+            self.identification = 1
+            pygame.quit()
 
         # 根据按键状态移动对象
         if keys[pygame.K_UP]:
@@ -277,28 +219,34 @@ class Game():
         self.draw_picture(self.data, self.screen, self.image_data, self.image, self.imageEnd, self.image_width, self.image_height, self.player_pos, self.end_pos)
 
     """
-    判决游戏退出的函数
+    判决游戏退出的函数，计时模块
     """
-    def exit_game(self):
-        if self.flag:
-            self.identification = 1
+    def check_game_time(self):
+        present_time = time.time() - self.start_time
+        remain_time = self.game_time_limit - present_time
+
+        if remain_time <= 0:
+            self.identification = 3
             pygame.quit()
+
+        time_str = "Time:{}s".format(int(remain_time))
+        text = self.font.render(time_str, True, (255, 255, 255))
+        self.screen.blit(text, (1480, 20))
+        pygame.display.flip()
 
     """
     判断游戏角色是否到达了终点
     """
     def check_end(self):
-        if self.end:
+        if self.player_pos == [95, 190]:
             self.identification = 2
-            self.curDiff = self.curDiff + 1
-            print('恭喜你到达了终点,该关卡结束')
             pygame.quit()
 
 
 if __name__ == '__main__':
-    game = Game()
+    game = Game(1)
     game.run_game()
     while True:
-        game.game_main()
+        game.check_game_time()
+        game.check_game_keys()
         game.check_end()
-        game.exit_game()

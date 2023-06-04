@@ -735,6 +735,8 @@ void show_one_seg_bfs(seg sg, double r)
 	for (k = 0; k <= path_step; k++)
 	{
 		v = sg.d1 + n_mult(1.0 * k / path_step, sg.d2 - sg.d1);
+		a = vec_to_node(v);
+		mp[a.x][a.y] = 0;
 		q.push(vec_to_node(v));
 	}
 

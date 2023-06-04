@@ -1,20 +1,18 @@
-from PyQt6.QtWidgets import QApplication, QMainWindow, QStackedWidget, QMessageBox
+from PyQt6.QtWidgets import QApplication, QMainWindow, QStackedWidget
 from PyQt6.QtGui import QIcon
 from PyQt6.QtCore import Qt
 import re
 import sys
 from qfluentwidgets import MessageBox, InfoBar, InfoBarPosition, setThemeColor
 
-import pygame
 from python_game.Main import Game
+from api import User
 
 from pages.login import Login  # 登录页
 from pages.home import Home  # 首页
 from pages.credit import Credit  # 积分排行
-from pages.failed import Failed  # 结算页
 from pages.help import Help  # 帮助页
 from pages.register import Register  # 注册页
-from minesql import Minesql  # 数据库操作
 
 
 class Window(QMainWindow):
@@ -37,8 +35,6 @@ class Window(QMainWindow):
         # 添加页面
         self.login_page = Login()
         self.stacked_widget.addWidget(self.login_page)
-        self.failed_page = Failed()
-        self.stacked_widget.addWidget(self.failed_page)
         self.credit_page = None
         self.help_page = Help()
         self.stacked_widget.addWidget(self.help_page)
@@ -57,8 +53,7 @@ class Window(QMainWindow):
         # 显示登录页
         self.stacked_widget.setCurrentWidget(self.login_page)
 
-        # 注册数据库
-        self.mine_sql = Minesql()
+        self.user = None
 
     def login(self):
         """
@@ -67,8 +62,6 @@ class Window(QMainWindow):
         """
         username = self.login_page.lineEdit_username.text()
         password = self.login_page.lineEdit_password.text()
-
-        self.username = username  # 存储当前用户名全局使用
 
         if username == '':
             InfoBar.warning(
@@ -94,39 +87,31 @@ class Window(QMainWindow):
             )
             return
 
-        res = self.mine_sql.login(username, password)
-
-        if res == 0:
-            InfoBar.error(
-                title='错误',
-                content="用户不存在",
+        # 发起登录请求
+        self.user = User(0, username, password)
+        if self.user.res["status"] == 1:
+            InfoBar.warning(
+                title='提示',
+                content=self.user.res["message"],
                 orient=Qt.Orientation.Horizontal,
                 isClosable=True,
                 position=InfoBarPosition.TOP,
                 duration=2000,
                 parent=self
             )
-        elif res == 1:
-            InfoBar.error(
-                title='错误',
-                content="密码错误",
-                orient=Qt.Orientation.Horizontal,
-                isClosable=True,
-                position=InfoBarPosition.TOP,
-                duration=5000,  # won't disappear automatically
-                parent=self
-            )
-        elif res == 2:
+        else:
+            self.username = username  # 存储当前用户名全局使用
             self.show_alert('登陆成功')
             self.login_page.lineEdit_username.clear()
             self.login_page.lineEdit_password.clear()
 
-            # 获取玩家积分
-            self.credit = self.mine_sql.get_own_credit(username)
+            # 获取玩家积分与难度
+            self.credit = self.user.get_own_credit()
+            self.curdif = self.user.get_difficulty()
 
             try:
                 # 生成首页
-                self.home_page = Home(username, self.credit)
+                self.home_page = Home(username, self.credit, self.curdif)
                 self.stacked_widget.addWidget(self.home_page)
                 self.home_page.qf_push_button_start.clicked.connect(self.start_game)
                 self.home_page.qf_push_button_quit_account.clicked.connect(self.go_to_login)
@@ -152,7 +137,7 @@ class Window(QMainWindow):
         跳转到积分页面
         :return:无返回值
         """
-        self.credit_page = Credit()  # 跳转到积分页面之前再创建页面
+        self.credit_page = Credit(self.user.get_all_credit())  # 跳转到积分页面之前再创建页面
         self.stacked_widget.addWidget(self.credit_page)  # 将积分页面添加至页面栈
         self.credit_page.qf_push_button_return.clicked.connect(self.go_to_home)  # 信号与插槽连接
         self.stacked_widget.setCurrentWidget(self.credit_page)  # 页面跳转
@@ -227,11 +212,11 @@ class Window(QMainWindow):
             )
             return
 
-        pattern_password = re.compile(r'^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$')
+        pattern_password = re.compile(r'^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$')
         if not bool(pattern_password.match(password)):
             InfoBar.warning(
                 title='提示',
-                content="密码必须包含大小写字母和数字的组合，不能使用特殊字符，长度在8到10之间",
+                content="密码必须包含大小写字母和数字的组合，不能使用特殊字符，长度在6到12之间",
                 orient=Qt.Orientation.Horizontal,
                 isClosable=True,
                 position=InfoBarPosition.TOP,
@@ -266,24 +251,34 @@ class Window(QMainWindow):
             )
             return
 
-        # 将注册信息添加至 MySQL 数据库
-        res = self.mine_sql.register(username, nickname, password)
-        if res == 0:
+        # 发起注册请求
+        self.user = User(1, username, password, nickname)
+        if self.user.res["status"] == 1:
             InfoBar.warning(
                 title='提示',
-                content="该用户已存在，请直接登录",
+                content=self.user.res["message"],
                 orient=Qt.Orientation.Horizontal,
                 isClosable=True,
                 position=InfoBarPosition.TOP,
                 duration=2000,
                 parent=self
             )
-        elif res == 1:
+        else:
             self.show_alert('注册成功！请牢记用户名，丢失则无法登录')
             self.register_page.lineEdit_username.clear()
             self.register_page.lineEdit_nickname.clear()
             self.register_page.lineEdit_password.clear()
             self.register_page.lineEdit_confirm.clear()
+
+            self.username = username
+
+            # 生成首页
+            self.home_page = Home(self.username, '0', '1')
+            self.stacked_widget.addWidget(self.home_page)
+            self.home_page.qf_push_button_start.clicked.connect(self.start_game)
+            self.home_page.qf_push_button_quit_account.clicked.connect(self.go_to_login)
+            self.home_page.qf_push_button_credit.clicked.connect(self.go_to_credit)
+            self.home_page.qf_push_button_help.clicked.connect(self.go_to_help)
 
             # 跳转到首页
             self.stacked_widget.setCurrentWidget(self.home_page)
@@ -294,15 +289,15 @@ class Window(QMainWindow):
         :return: 无返回值
         """
         try:
-            difficulty = self.mine_sql.get_own_difficulty(self.username)  # 读取数据库存储的难度
-            game = Game()
+            # 获取难度
+            difficulty = self.user.get_difficulty()
+            game = Game(difficulty)
             game.run_game()
             while True:
-                game.game_main()
+                game.check_game_time()
+                game.check_game_keys()
                 game.check_end()
-                game.exit_game()
         except Exception as e:
-            print(game.identification)
             if game.identification == 1:
                 """
                 这里是直接退出
@@ -313,19 +308,25 @@ class Window(QMainWindow):
                 这是游戏成功后的逻辑
                 """
                 # 增加积分并查询
-                if difficulty == 0:
-                    self.mine_sql.add_credit(self.username, 1)
-                elif difficulty == 1:
-                    self.mine_sql.add_credit(self.username, 2)
+                if difficulty == 1:
+                    # 发起增加积分请求
+                    self.user.add_credit(1)
                 elif difficulty == 2:
-                    self.mine_sql.add_credit(self.username, 3)
+                    self.user.add_credit(2)
+                elif difficulty == 3:
+                    self.user.add_credit(3)
                 else:
-                    self.mine_sql.add_credit(self.username, 5)
+                    self.user.add_credit(5)
 
-                self.credit = self.mine_sql.get_own_credit(self.username)  # 获取总积分
+                # 发起增加难度请求
+                self.user.add_difficulty()
+
+                # 获取积分
+                self.credit = self.user.get_own_credit()
                 self.home_page.label_credit.setText('积分：' + str(self.credit))  # 更改积分文案
-
-                self.mine_sql.add_difficulty(self.username)  # 在数据库增加难度
+                # 获取难度
+                self.curdif = self.user.get_difficulty()
+                self.home_page.label_difficulty.setText('关数：' + str(self.curdif))  # 更改难度文案
 
                 # 提示通关，询问是否进入下一关
                 title = '通关'
@@ -339,15 +340,17 @@ class Window(QMainWindow):
                 """
                 这是游戏失败的逻辑
                 """
+                # 发起清空难度请求
+                self.user.clear_difficulty()  # 清空难度
+                self.home_page.label_difficulty.setText('关数：1')  # 更改难度文案
+
                 # 失败提示
                 title = '失败'
                 content = '抱歉，你失败了，请重头再来'
                 w = MessageBox(title, content, self)
                 if w.exec():
-                    self.mine_sql.clear_difficulty(self.username)  # 数据库清空
                     self.start_game()
                 else:
-                    self.mine_sql.clear_difficulty(self.username)  # 数据库清空
                     return
 
     def go_to_home(self):
@@ -362,6 +365,7 @@ class Window(QMainWindow):
         跳转到登录页
         :return: 无返回值
         """
+        self.user = None
         self.stacked_widget.setCurrentWidget(self.login_page)
         self.register_page.lineEdit_username.clear()
         self.register_page.lineEdit_nickname.clear()
@@ -377,9 +381,9 @@ class Window(QMainWindow):
         title = '提示'
         w = MessageBox(title, content, self)
         if w.exec():
-            print('Yes button is pressed')
+            pass
         else:
-            print('Cancel button is pressed')
+            pass
 
 
 if __name__ == '__main__':
