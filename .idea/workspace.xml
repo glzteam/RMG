@@ -5,32 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fcb20d14-eb13-4288-bcf3-d1c3750bc86f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RandProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/RandProject.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/api.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/minesql.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/credit.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/credit.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/failed.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/home.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_game/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_game/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/.vs/RandProject/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/.vs/RandProject/v16/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/.vs/RandProject/v16/Browse.VC.db" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/.vs/RandProject/v16/Browse.VC.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/RandProject/mydll.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/RandProject/mydll.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.ilk" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.ilk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.log" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.pch" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.pch" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.tlog/CL.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.tlog/CL.read.1.tlog" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.tlog/RandProject.lastbuildstate" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.tlog/RandProject.lastbuildstate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.tlog/link.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/RandProject.tlog/link.read.1.tlog" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/dllmain.obj" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/dllmain.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/mydll.obj" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/mydll.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/pch.obj" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/pch.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/vc142.idb" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/vc142.idb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/vc142.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/RandProject/x64/Debug/vc142.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/x64/Debug/RandProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/x64/Debug/RandProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/x64/Debug/RandProject.exp" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/x64/Debug/RandProject.exp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs01/RandProject/x64/Debug/RandProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/vs01/RandProject/x64/Debug/RandProject.pdb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

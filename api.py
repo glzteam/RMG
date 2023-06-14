@@ -1,6 +1,8 @@
 import requests
 import json
-
+hostname = 'http://localhost'
+port = '85'
+http = hostname + ":" + port
 
 class User(object):
     def __init__(self, category, username, password, nickname=""):
@@ -11,7 +13,7 @@ class User(object):
 
         # 登录
         if category == 0:
-            response = requests.post("http://localhost:85/user/login", data={
+            response = requests.post(http + "/user/login", data={
                 "username": str(username),
                 "password": str(password)
             })
@@ -27,7 +29,7 @@ class User(object):
                 print("请求失败，错误码：", response.status_code)
         # 注册
         elif category == 1:
-            response = requests.post("http://localhost:85/user/register", data={
+            response = requests.post(http + "/user/register", data={
                 "username": str(username),
                 "nickname": str(nickname),
                 "password": str(password)
@@ -44,7 +46,7 @@ class User(object):
                 print("请求失败，错误码：", response.status_code)
 
     def get_all_credit(self):
-        response = requests.get("http://localhost:85/credit/getall", headers={"Authorization": self.Authorization})
+        response = requests.get(http + "/credit/getall", headers={"Authorization": self.Authorization})
 
         if response.status_code == 200:
             return json.loads(response.text)["data"]
@@ -53,7 +55,7 @@ class User(object):
             print("请求失败，错误码：", response.status_code)
 
     def get_own_credit(self):
-        response = requests.get("http://localhost:85/credit/getown", params={"username": self.username},
+        response = requests.get(http + "/credit/getown", params={"username": self.username},
                                 headers={"Authorization": self.Authorization})
 
         if response.status_code == 200:
@@ -63,7 +65,7 @@ class User(object):
             print("请求失败，错误码：", response.status_code)
 
     def add_credit(self, credit):
-        response = requests.post("http://localhost:85/credit/add",
+        response = requests.post(http + "/credit/add",
                                  data={"username": self.username, "credit": str(credit)},
                                  headers={"Authorization": self.Authorization})
 
@@ -74,7 +76,7 @@ class User(object):
             print("请求失败，错误码：", response.status_code)
 
     def get_difficulty(self):
-        response = requests.get("http://localhost:85/difficulty/get", params={"username": self.username},
+        response = requests.get(http + "/difficulty/get", params={"username": self.username},
                                 headers={"Authorization": self.Authorization})
 
         if response.status_code == 200:
@@ -86,7 +88,7 @@ class User(object):
             print("请求失败，错误码：", response.status_code)
 
     def add_difficulty(self):
-        response = requests.post("http://localhost:85/difficulty/add", data={"username": self.username},
+        response = requests.post(http + "/difficulty/add", data={"username": self.username},
                                  headers={"Authorization": self.Authorization})
 
         if response.status_code == 200:
@@ -97,7 +99,7 @@ class User(object):
             print("请求失败，错误码：", response.status_code)
 
     def clear_difficulty(self):
-        response = requests.post("http://localhost:85/difficulty/clear", data={"username": self.username},
+        response = requests.post(http + "/difficulty/clear", data={"username": self.username},
                                  headers={"Authorization": self.Authorization})
 
         if response.status_code == 200:

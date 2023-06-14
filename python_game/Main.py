@@ -15,7 +15,12 @@ class Game():
         self.image = pygame.transform.scale(pygame.image.load('python_game/images/m.bmp'), (8, 8))
         self.imageEnd = pygame.transform.scale(pygame.image.load('python_game/images/end.bmp'), (8, 8))
         self.image0 = pygame.transform.scale(pygame.image.load('python_game/images/str1.bmp'), (8, 8))
-        self.image1 = pygame.transform.scale(pygame.image.load('python_game/images/str2.bmp'), (8, 8))
+        if difficulty % 3 == 0:
+            self.image1 = pygame.transform.scale(pygame.image.load('python_game/images/str2.bmp'), (8, 8))
+        if difficulty % 3 == 1:
+            self.image1 = pygame.transform.scale(pygame.image.load('python_game/images/sl.bmp'), (8, 8))
+        if difficulty % 3 == 2:
+            self.image1 = pygame.transform.scale(pygame.image.load('python_game/images/hs.bmp'), (8, 8))
 
         # 设置角色和终点位置
         self.player_pos = [4, 6]
@@ -23,8 +28,6 @@ class Game():
 
         # 游戏限时
         self.game_time_limit = 30
-
-        self.flag = False
 
         # 判断程序结束的标识
         self.identification = 0
@@ -173,6 +176,7 @@ class Game():
 
         # 生成二维矩阵，并将其赋值给dataX
         self.data = np.array(self.out_matrix())
+        print('此时生成的游戏地图参数为：', self.data)
         # 参数设置
         self.image_width = self.image0.get_width()
         self.image_height = self.image0.get_height()
@@ -196,12 +200,14 @@ class Game():
     def check_game_keys(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                print('游戏结束, 用户点击了退出按钮！,identification的值为1')
                 self.identification = 1
                 pygame.quit()
 
         # 获取当前按下的按键
         keys = pygame.key.get_pressed()
         if keys[pygame.K_SPACE]:
+            print('游戏结束, 用户点击了空格键！,identification的值为1')
             self.identification = 1
             pygame.quit()
 
@@ -216,16 +222,18 @@ class Game():
             self.moving_right(self.player_pos, self.data)
         time.sleep(0.01)
         # 绘制图像
-        self.draw_picture(self.data, self.screen, self.image_data, self.image, self.imageEnd, self.image_width, self.image_height, self.player_pos, self.end_pos)
+        self.draw_picture(self.data, self.screen, self.image_data, self.image, self.imageEnd, self.image_width,
+                          self.image_height, self.player_pos, self.end_pos)
 
     """
-    判决游戏退出的函数，计时模块
+    判决系统运行时间的函数，计时模块
     """
     def check_game_time(self):
         present_time = time.time() - self.start_time
         remain_time = self.game_time_limit - present_time
 
         if remain_time <= 0:
+            print('游戏结束, 玩家没能在规定时间内通过该关卡！,identification的值为3')
             self.identification = 3
             pygame.quit()
 
@@ -239,6 +247,7 @@ class Game():
     """
     def check_end(self):
         if self.player_pos == [95, 190]:
+            print('游戏结束, 玩家通过该关卡！,identification的值为2')
             self.identification = 2
             pygame.quit()
 

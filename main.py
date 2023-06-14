@@ -63,10 +63,11 @@ class Window(QMainWindow):
         username = self.login_page.lineEdit_username.text()
         password = self.login_page.lineEdit_password.text()
 
-        if username == '':
+        # 检查用户名是否为空
+        if not username:
             InfoBar.warning(
-                title='警告',
-                content="用户名不能为空",
+                title='提示',
+                content="请输入用户名",
                 orient=Qt.Orientation.Horizontal,
                 isClosable=True,
                 position=InfoBarPosition.TOP,
@@ -75,10 +76,36 @@ class Window(QMainWindow):
             )
             return
 
-        if password == '':
+        pattern_username = re.compile(r'^[a-zA-Z0-9]{1,10}$')
+        if not bool(pattern_username.match(username)):
             InfoBar.warning(
-                title='警告',
-                content="密码不能为空",
+                title='提示',
+                content="用户名只能包含英文与数字,且长度为1-10",
+                orient=Qt.Orientation.Horizontal,
+                isClosable=True,
+                position=InfoBarPosition.TOP,
+                duration=2000,
+                parent=self
+            )
+            return
+
+        # 检查密码是否为空
+        if not password:
+            InfoBar.warning(
+                title='提示',
+                content="请输入密码",
+                orient=Qt.Orientation.Horizontal,
+                isClosable=True,
+                position=InfoBarPosition.TOP,
+                duration=2000,
+                parent=self
+            )
+            return
+        pattern_password = re.compile(r'^[a-zA-Z0-9]{6,12}$')
+        if not bool(pattern_password.match(password)):
+            InfoBar.warning(
+                title='提示',
+                content="密码只能包含英文与数字,且长度为6-12",
                 orient=Qt.Orientation.Horizontal,
                 isClosable=True,
                 position=InfoBarPosition.TOP,
@@ -100,16 +127,18 @@ class Window(QMainWindow):
                 parent=self
             )
         else:
-            self.username = username  # 存储当前用户名全局使用
-            self.show_alert('登陆成功')
-            self.login_page.lineEdit_username.clear()
-            self.login_page.lineEdit_password.clear()
-
             # 获取玩家积分与难度
             self.credit = self.user.get_own_credit()
             self.curdif = self.user.get_difficulty()
+            self.username = username  # 存储当前用户名全局使用
 
-            try:
+            title = '提示'
+            content = '登陆成功'
+            w = MessageBox(title, content, self)
+            if w.exec():
+                self.login_page.lineEdit_username.clear()
+                self.login_page.lineEdit_password.clear()
+
                 # 生成首页
                 self.home_page = Home(username, self.credit, self.curdif)
                 self.stacked_widget.addWidget(self.home_page)
@@ -120,8 +149,20 @@ class Window(QMainWindow):
 
                 # 跳转到首页
                 self.stacked_widget.setCurrentWidget(self.home_page)
-            except Exception as e:
-                print(e)
+            else:
+                self.login_page.lineEdit_username.clear()
+                self.login_page.lineEdit_password.clear()
+
+                # 生成首页
+                self.home_page = Home(username, self.credit, self.curdif)
+                self.stacked_widget.addWidget(self.home_page)
+                self.home_page.qf_push_button_start.clicked.connect(self.start_game)
+                self.home_page.qf_push_button_quit_account.clicked.connect(self.go_to_login)
+                self.home_page.qf_push_button_credit.clicked.connect(self.go_to_credit)
+                self.home_page.qf_push_button_help.clicked.connect(self.go_to_help)
+
+                # 跳转到首页
+                self.stacked_widget.setCurrentWidget(self.home_page)
 
     def go_to_register(self):
         """
@@ -137,7 +178,8 @@ class Window(QMainWindow):
         跳转到积分页面
         :return:无返回值
         """
-        self.credit_page = Credit(self.user.get_all_credit())  # 跳转到积分页面之前再创建页面
+        users = self.user.get_all_credit()
+        self.credit_page = Credit(users)  # 先积分创建页面
         self.stacked_widget.addWidget(self.credit_page)  # 将积分页面添加至页面栈
         self.credit_page.qf_push_button_return.clicked.connect(self.go_to_home)  # 信号与插槽连接
         self.stacked_widget.setCurrentWidget(self.credit_page)  # 页面跳转
@@ -173,11 +215,11 @@ class Window(QMainWindow):
             )
             return
 
-        pattern_username = re.compile(r'^[a-zA-Z0-9]+$')
+        pattern_username = re.compile(r'^[a-zA-Z0-9]{1,10}$')
         if not bool(pattern_username.match(username)):
             InfoBar.warning(
                 title='提示',
-                content="用户名只能包含英文与数字",
+                content="用户名只能包含英文与数字,且长度为1-10",
                 orient=Qt.Orientation.Horizontal,
                 isClosable=True,
                 position=InfoBarPosition.TOP,
@@ -199,6 +241,19 @@ class Window(QMainWindow):
             )
             return
 
+        pattern_nickname = re.compile(r'^.{1,10}$')
+        if not bool(pattern_nickname.match(nickname)):
+            InfoBar.warning(
+                title='提示',
+                content="昵称的长度为1-10",
+                orient=Qt.Orientation.Horizontal,
+                isClosable=True,
+                position=InfoBarPosition.TOP,
+                duration=2000,
+                parent=self
+            )
+            return
+
         # 检查密码是否为空
         if not password:
             InfoBar.warning(
@@ -211,16 +266,15 @@ class Window(QMainWindow):
                 parent=self
             )
             return
-
-        pattern_password = re.compile(r'^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$')
+        pattern_password = re.compile(r'^[a-zA-Z0-9]{6,12}$')
         if not bool(pattern_password.match(password)):
             InfoBar.warning(
                 title='提示',
-                content="密码必须包含大小写字母和数字的组合，不能使用特殊字符，长度在6到12之间",
+                content="密码只能包含英文与数字,且长度为6-12",
                 orient=Qt.Orientation.Horizontal,
                 isClosable=True,
                 position=InfoBarPosition.TOP,
-                duration=5000,
+                duration=2000,
                 parent=self
             )
             return
@@ -270,7 +324,10 @@ class Window(QMainWindow):
             self.register_page.lineEdit_password.clear()
             self.register_page.lineEdit_confirm.clear()
 
+            # 保存用户名、积分、难度供后续使用
             self.username = username
+            self.credit = 0
+            self.curdif = 1
 
             # 生成首页
             self.home_page = Home(self.username, '0', '1')
@@ -300,32 +357,33 @@ class Window(QMainWindow):
         except Exception as e:
             if game.identification == 1:
                 """
-                这里是直接退出
+                直接退出
                 """
                 return
             elif game.identification == 2:
                 """
-                这是游戏成功后的逻辑
+                游戏成功
                 """
-                # 增加积分并查询
+                # 根据难度增加积分
                 if difficulty == 1:
-                    # 发起增加积分请求
                     self.user.add_credit(1)
+                    self.credit = self.credit + 1
                 elif difficulty == 2:
                     self.user.add_credit(2)
+                    self.credit = self.credit + 2
                 elif difficulty == 3:
                     self.user.add_credit(3)
+                    self.credit = self.credit + 3
                 else:
                     self.user.add_credit(5)
+                    self.credit = self.credit + 5
 
-                # 发起增加难度请求
+                # 增加难度
                 self.user.add_difficulty()
+                self.curdif = self.curdif + 1
 
-                # 获取积分
-                self.credit = self.user.get_own_credit()
+                # 更新文案
                 self.home_page.label_credit.setText('积分：' + str(self.credit))  # 更改积分文案
-                # 获取难度
-                self.curdif = self.user.get_difficulty()
                 self.home_page.label_difficulty.setText('关数：' + str(self.curdif))  # 更改难度文案
 
                 # 提示通关，询问是否进入下一关
@@ -338,10 +396,10 @@ class Window(QMainWindow):
                     return
             elif game.identification == 3:
                 """
-                这是游戏失败的逻辑
+                游戏失败
                 """
-                # 发起清空难度请求
-                self.user.clear_difficulty()  # 清空难度
+                # 清空难度
+                self.user.clear_difficulty()  # 清空数据库
                 self.home_page.label_difficulty.setText('关数：1')  # 更改难度文案
 
                 # 失败提示
