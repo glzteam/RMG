@@ -22,10 +22,12 @@ RMG（Random Map Generator），随机地图生成器。主要核心算法是随
     $ pip install pygame
     $ pip install PyQt6
     $ pip install PyQt6-Fluent-Widgets -i https://pypi.org/simple/
-    $ pip install mysql-connector
+    $ pip install requests
     ```
 
 ## 使用说明
+
+注意：请确保后端程序已启动
 
 1. 使用地图生成算法
 
@@ -41,7 +43,7 @@ RMG（Random Map Generator），随机地图生成器。主要核心算法是随
 
 > pages 文件夹下为使用 PyQt6 于 PyQt6-fluent-ui 编写的各个页面。
 >
-> minesql.py 是使用 mysq 数据库管理数据的文件。
+> api.py 是使用 requests 编写的数据请求 API。
 
 ## 技术栈
 
@@ -63,7 +65,7 @@ RMG（Random Map Generator），随机地图生成器。主要核心算法是随
 
     - PyQt6 完成框架设计。
     -  PyQt6-Fluent-Widgets -i https://pypi.org/simple/ 完成 UI 设计。
-    - mysql-connector 完成数据库设计。
+    - requests 完成请求接口设计。
 
 ## 贡献指南
 
